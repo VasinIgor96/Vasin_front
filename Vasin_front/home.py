@@ -6,16 +6,29 @@ from flet_core.icons import EXPAND
 
 class Home(ft.UserControl):
     def build(self):
-        return ft.Row(
+        return ft.Stack(
             [
-                ft.Container(
-                    image_src=(f"https://github.com/VasinIgor96/New-Project/blob/master/Fonnn.jpg?raw=true"),
-                    height=720,
-                    width=1080,
+                ft.Row(
+                    [
+                    ft.Image(
+                        f"https://github.com/VasinIgor96/New-Project/blob/master/Fonnn.jpg?raw=true", 
+                        fit=ft.ImageFit.CONTAIN,
+                        #width = 2000,
+                        #height=2000,
+                        
+                        ),
+                        ]
+                   
+                  ),
+                 ft.Container(
+                    margin = ft.margin.only(top = 175),
+                    alignment=ft.alignment.center,
                     content=ft.Card(
                         content=ft.Container(
                             
                             height=400,
+                            width=400,
+                            padding=25,
                             content=ft.Column(
                                 [
                                     ft.Row(
@@ -43,20 +56,17 @@ class Home(ft.UserControl):
                                         
                                     ),
 
-                                    ft.Row( 
-                                        [ft.ElevatedButton("Далі", width=120, style=ft.ButtonStyle (ft.colors.BLUE_900, side=ft.BorderSide(2, ft.colors.BLUE_900)))],
+                                    ft.Row(
+                                        [ft.ElevatedButton("Далі", width=120, style=ft.ButtonStyle (ft.colors.BLUE_900, side=ft.BorderSide(2, ft.colors.BLUE_900)), on_click=go_store())],
                                         alignment=ft.MainAxisAlignment.END,
                                     ),
                                 ]
                             ),
-                            width=400,
-                            padding=25,
+                           
                         )
                     ),
-                    expand=True,
-                    alignment=ft.alignment.center
-                )
+                   ),
+             
             ],
-            alignment=ft.alignment.center
+             
         )
-        
