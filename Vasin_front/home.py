@@ -1,12 +1,13 @@
-from posixpath import expanduser
-from turtle import color
+
+from cmath import e
 import flet as ft
 from flet_core.icons import EXPAND
 
 
-class Home(ft.UserControl):
-    def build(self):
-        return ft.Stack(
+
+
+def Home():
+        ft.Stack(
             [
                 ft.Row(
                     [
@@ -16,8 +17,8 @@ class Home(ft.UserControl):
                         #width = 2000,
                         #height=2000,
                         
-                        ),
-                        ]
+                    ),
+                    ]
                    
                   ),
                  ft.Container(
@@ -52,7 +53,7 @@ class Home(ft.UserControl):
                                     ),
 
                                        ft.Row(
-                                        [ft.Checkbox(label="Я погоджуюсь з умовами обробки\n перснальних данних", value=False, fill_color=ft.colors.BLUE_900)],
+                                        [ft.Checkbox(label="Я погоджуюсь з умовами обробки\n персональних данних", value=False, fill_color=ft.colors.BLUE_900)],
                                         
                                     ),
 
@@ -65,7 +66,7 @@ class Home(ft.UserControl):
                            
                         )
                     ),
-                   ),
+                 ),
              
             ],
              
