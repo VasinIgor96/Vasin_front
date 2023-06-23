@@ -14,9 +14,8 @@ def Home():
                     ft.Image(
                         f"https://github.com/VasinIgor96/New-Project/blob/master/Fonnn.jpg?raw=true", 
                         fit=ft.ImageFit.CONTAIN,
-                        #width = 2000,
-                        #height=2000,
                         
+
                     ),
                     ]
                    

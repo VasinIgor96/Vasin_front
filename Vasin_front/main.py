@@ -1,23 +1,19 @@
 
 import flet as ft
-
+from cmath import e
 from home import Home
 
 
 def main(page: ft.page):
-    def page_resize(e):
-        pw.update()
-    page.on_resize = page_resize
-    pw = ft.Text(bottom=350, right=150, style="displaySmall")
-    page.overlay.append(pw)
+
     page.window_min_width = 400
-    page.window_min_height = 750
+    page.window_min_height = 1000
     page.title = "ProSkill"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.theme = ft.Theme(color_scheme_seed="indigo")
     page.theme_mode = ft.ThemeMode.LIGHT
     page.scroll = "auto"
-
+    page.scroll_mode = ft.ScrollMode.AUTO
     def route_change(route):
         page.views.clear()
         page.views.append(
@@ -34,6 +30,7 @@ def main(page: ft.page):
                                     ),
                                 ],
                             ),
+
                             ft.Container(
                                 margin=ft.margin.only(top=175),
                                 alignment=ft.alignment.center,
@@ -121,12 +118,14 @@ def main(page: ft.page):
                                         ),
                                     ],   
                                 ),
+
+
                                 ft.Container(
                                     margin=ft.margin.only(top=175),
                                     alignment=ft.alignment.center,
                                     content=ft.Card(
                                         content=ft.Container(
-                                            height=350,
+                                            height=370,
                                             width=400,
                                             padding=30,
                                             content=ft.Column(
@@ -165,6 +164,13 @@ def main(page: ft.page):
                                                         ],
                                                         alignment=ft.MainAxisAlignment.CENTER,
                                                     ),
+
+                                                    ft.Row(
+                                                    [
+                                                        ft.TextButton("Зареєструватись",on_click=lambda _: page.go("/"))
+                                                    ],
+                                                    alignment=ft.MainAxisAlignment.CENTER
+                                                ), 
                                                 ]                   
                                             ),
                                         ),
@@ -208,7 +214,7 @@ def main(page: ft.page):
                                     content=ft.Card(
                                         content=ft.Container(
                                             border_radius=15,
-                                            height=600,
+                                            height=True,
                                             width=1300,
                                             padding=25,
                                             bgcolor=ft.colors.INDIGO_100,
@@ -217,14 +223,14 @@ def main(page: ft.page):
                                                     
                                                     ft.Row(
                                                         [
-                                                            ft.Text("Ласкаво просимо до тесту на професійну орієнтацію!", weight=ft.FontWeight.BOLD, color='indigo900', size=35)
+                                                            ft.Text("Ласкаво просимо до тесту на професійну орієнтацію!", weight=ft.FontWeight.BOLD, color='indigo900', size=35, expand=True)
                                                         ],
-                                                         alignment=ft.MainAxisAlignment.CENTER,
+                                                         alignment=ft.MainAxisAlignment.CENTER
                                                     ), 
                                                 
                                                     ft.Row(
                                                         [
-                                                            ft.Text("Цей тест розроблений для допомоги вам у визначенні вашої професійної спрямованості та вибору кар'єрного шляху, який може найкраще підійти саме вам.\nТест складається з ряду запитань які допоможуть виявити ваші інтереси, навички, особисті якості та цінності.\nВам буде запропоновано різні ситуації, вибори та питання, на які потрібно відповісти чесно та уважно.\nПам'ятайте, що немає правильних або неправильних відповідей - важливо висловити свої власні думки та переконання.\nБудь ласка, перед початком тесту забезпечте собі комфортні умови та зосередьтеся.\nВідведіть достатньо часу для проходження тесту, оскільки ваші відповіді будуть впливати на результат.\nПам'ятайте, що це лише один з багатьох інструментів, які можуть допомогти вам у виборі професії, і рекомендації, які ви отримаєте, слід розглядати в комплексі з вашими інтересами та особистими обставинами.\nЯкщо ви готові, давайте почнемо тест на професійну орієнтацію.\nНадіємося, що цей тест допоможе вам краще зрозуміти себе та знайти шлях до задоволення в професійній діяльності!", size=20, color="grey900", italic=True, height=430, width=1200, )
+                                                            ft.Text("Цей тест розроблений для допомоги вам у визначенні вашої професійної спрямованості та вибору кар'єрного шляху, який може найкраще підійти саме вам.\nТест складається з ряду запитань які допоможуть виявити ваші інтереси, навички, особисті якості та цінності.\nВам буде запропоновано різні ситуації, вибори та питання, на які потрібно відповісти чесно та уважно.\nПам'ятайте, що немає правильних або неправильних відповідей - важливо висловити свої власні думки та переконання.\nБудь ласка, перед початком тесту забезпечте собі комфортні умови та зосередьтеся.\nВідведіть достатньо часу для проходження тесту, оскільки ваші відповіді будуть впливати на результат.\nПам'ятайте, що це лише один з багатьох інструментів, які можуть допомогти вам у виборі професії, і рекомендації, які ви отримаєте, слід розглядати в комплексі з вашими інтересами та особистими обставинами.\nЯкщо ви готові, давайте почнемо тест на професійну орієнтацію.\nНадіємося, що цей тест допоможе вам краще зрозуміти себе та знайти шлях до задоволення в професійній діяльності!", size=21, color="grey900", italic=True, height=430, width=1200, expand=True )
                                                         ],
                                                          alignment=ft.MainAxisAlignment.CENTER,
                                                     ),
@@ -232,10 +238,12 @@ def main(page: ft.page):
                                                     ft.Row(
                                                         [
                                                             ft.OutlinedButton(
+                                                                expand=True,
                                                                 content=ft.Container(
+                                                                    
                                                                     content=ft.Column(
                                                                         [
-                                                                          ft.Text(value="Розпочати тест", size=20),
+                                                                          ft.Text(value="Розпочати тест", size=20)
                                                                         ],
                                                                          alignment=ft.MainAxisAlignment.CENTER,   
                                                                     ),
@@ -260,7 +268,8 @@ def main(page: ft.page):
                     ]
                 )
             )
-
+    
+    
         if  page.route == "/test":
             page.views.append(
                 ft.View(
@@ -286,20 +295,11 @@ def main(page: ft.page):
                                     ],
                                         alignment=ft.MainAxisAlignment.END
                                 ),
-
-                                ft.Container(
-                                    margin=ft.margin.only(top=175),
-                                    alignment=ft.alignment.center,
-                                    content=ft.Card(
-                                        content=ft.Container(
-                                            height=350,
-                                            width=400,
-                                            padding=30,
-                                            content=ft.Column(
-                                                [
-                                                    
-                                                ],))))])]))
-
+                            ]
+                        ),
+                    ]
+                )
+            )
     def view_pop(view):
         page.views.pop()
         top_view = page.views[-1]
@@ -308,7 +308,7 @@ def main(page: ft.page):
     page.on_route_change = route_change
     page.on_view_pop = view_pop
     page.go(page.route)
-    page_resize(None)
+
 
 
 ft.app(target=main)
